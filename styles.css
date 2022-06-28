@@ -9,3 +9,65 @@
   margin: 0;
   padding: 0;
 }
+
+body {
+  font-family: "Helvetica Neue", sans-serif, Ubuntu, Cantarell, "Open Sans";
+  font-size: 1rem;
+}
+
+body,
+.container,
+.users_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 100%;
+  margin: 1rem;
+}
+
+.users_container {
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 0.3rem;
+  box-shadow: 0px 3px 15px -9px black;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  text-align: start;
+}
+
+tbody tr {
+  border-top: 1px solid gainsboro;
+}
+
+th,
+td {
+  padding: 1rem;
+}
+
+.validated {
+  background-color: var(--validated);
+}
+
+.pending {
+  background-color: var(--on_validation);
+}
+
+.rejected {
+  background-color: var(--rejected);
+}
+
+.validated,
+.pending,
+.rejected {
+  border-radius: 0.2rem;
+  padding: 0.5rem;
+}
