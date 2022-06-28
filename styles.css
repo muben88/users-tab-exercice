@@ -29,7 +29,8 @@ body,
 }
 
 .container {
-  margin: 1rem;
+  margin: 2rem;
+  min-height: 100vh;
   flex-direction: column;
 }
 
@@ -50,12 +51,18 @@ th {
   text-align: start;
 }
 
+th:nth-child(3),
+td:nth-child(3),
 td:last-child {
   text-align: center;
 }
 
+th:nth-child(7) {
+  width: 20rem;
+}
+
 tbody tr {
-  border-top: 1px solid gainsboro;
+  border-top: 1px solid rgb(224, 224, 224);
 }
 
 th,
@@ -91,16 +98,20 @@ td {
 .rejected {
   border-radius: 0.2rem;
   padding: 0.5rem;
+  color: #fff;
 }
 
 .add_user_btn {
   margin-top: 1rem;
+  padding: 1.5rem;
 }
 
 .add_user_btn button {
+  font-weight: 600;
   float: right;
-  padding: 0.5rem 1.5rem;
+  padding: 0.8rem 3rem;
   background-color: #ffc21c;
+  color: rgb(107, 107, 107);
   border: none;
   border-radius: 0.3rem;
   cursor: pointer;
