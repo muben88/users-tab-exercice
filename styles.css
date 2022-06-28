@@ -22,17 +22,23 @@ body,
   justify-content: center;
   align-items: center;
 }
-
-.container {
+.container,
+.users_container,
+.add_user_btn {
   width: 100%;
-  margin: 1rem;
 }
 
-.users_container {
+.container {
+  margin: 1rem;
+  flex-direction: column;
+}
+
+.users_container,
+.add_user_btn {
   padding: 1rem;
   background-color: #fff;
   border-radius: 0.3rem;
-  box-shadow: 0px 3px 15px -9px black;
+  box-shadow: 0px 1px 10px -6px black;
 }
 
 table {
@@ -70,4 +76,23 @@ td {
 .rejected {
   border-radius: 0.2rem;
   padding: 0.5rem;
+}
+
+.add_user_btn {
+  margin-top: 1rem;
+}
+
+.add_user_btn button {
+  float: right;
+  padding: 0.5rem 1.5rem;
+  background-color: #ffc21c;
+  border: none;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  box-shadow: 0px 3px 10px -6px rgb(0 0 0);
+}
+
+.add_user_btn button:hover {
+  background-color: #f0b20a;
+  transition: 0.2s ease-in;
 }
