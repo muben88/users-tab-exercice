@@ -1,0 +1,11 @@
+:root {
+  --validated: #5be881;
+  --rejected: #ff0000;
+  --on_validation: #fdb64d;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
