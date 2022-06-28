@@ -50,6 +50,10 @@ th {
   text-align: start;
 }
 
+td:last-child {
+  text-align: center;
+}
+
 tbody tr {
   border-top: 1px solid gainsboro;
 }
@@ -57,6 +61,17 @@ tbody tr {
 th,
 td {
   padding: 1rem;
+}
+
+.delete_btn {
+  width: 1rem;
+  height: 1rem;
+}
+
+.delete_btn:hover {
+  transform: rotate(15deg);
+  transition: 0.2s ease-in;
+  cursor: pointer;
 }
 
 .validated {
