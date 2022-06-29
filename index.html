@@ -15,7 +15,7 @@
           <thead>
             <tr>
               <th onclick="console.log(users)">ID</th>
-              <th onclick="addUser()">Date de création</th>
+              <th>Date de création</th>
               <th>Etat</th>
               <th>Nom</th>
               <th>Prénom</th>
@@ -43,7 +43,11 @@
           </div>
           <div>
             <label for="status">Etat</label>
-            <input type="text" id="status" />
+            <select id="status">
+              <option value="validé">Validé</option>
+              <option value="en validation">En Validation</option>
+              <option value="rejeté">Rejeté</option>
+            </select>
           </div>
           <div>
             <label for="username">Nom d'utilisateur</label>
@@ -51,11 +55,11 @@
           </div>
           <div>
             <label for="created-date">Date de création</label>
-            <input type="text" id="created-date" />
+            <input type="date" id="created-date" />
           </div>
           <div class="last-input">
             <label for="registration-number">Matricule</label>
-            <input type="text" id="registration-number" />
+            <input type="number" id="registration-number" />
           </div>
         </div>
         <div class="save-user-btn">
