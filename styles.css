@@ -36,8 +36,7 @@ body,
 }
 
 .users_container,
-.add_user_btn,
-.modal {
+.add_user_btn {
   padding: 1rem;
   background-color: #fff;
   border-radius: 0.3rem;
@@ -98,6 +97,8 @@ td {
 .validated,
 .pending,
 .rejected {
+  display: inline-block;
+  width: 7rem;
   border-radius: 0.2rem;
   padding: 0.5rem;
   color: #fff;
@@ -106,6 +107,23 @@ td {
 .add_user_btn {
   margin-top: 1rem;
   padding: 1.5rem;
+}
+
+dialog {
+  z-index: 10;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  border-radius: 0.5rem;
+  border: none;
+  box-shadow: 0px 1px 8px -3px black;
+  padding: 2rem;
+  background-color: #fff;
+}
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .add_user_btn button,
@@ -127,15 +145,6 @@ td {
   transition: 0.2s ease-in;
 }
 
-.modal {
-  padding: 2rem;
-  position: absolute;
-  top: -50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.modal,
 .save-user-btn {
   width: 100%;
 }
@@ -170,21 +179,4 @@ select {
 input:focus,
 select:focus {
   outline: 1px solid #ffc21c;
-}
-
-.active_modal {
-  z-index: 10;
-  top: 50%;
-  transition: 0.5s ease-in;
-}
-
-.empty-div {
-  display: none;
-  z-index: 2;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 100%;
-  min-height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
 }
