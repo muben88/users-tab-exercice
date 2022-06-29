@@ -28,6 +28,8 @@ let arr = [
   },
 ];
 
+const usersTable = document.querySelector("#users-table"); // tbody element
+
 const firstName = document.querySelector("#first-name"); // first name input
 const lastName = document.querySelector("#last-name"); // last name input
 const status = document.querySelector("#status"); // status input
@@ -58,8 +60,8 @@ const uid = () =>
     .toString()
     .substring(1, 10);
 
-const usersTable = document.querySelector("#users-table");
-let users = JSON.parse(localStorage.getItem("users")) || [];
+let usersFromLs = localStorage.getItem("users");
+let users = usersFromLs ? JSON.parse(localStorage.getItem("users")) : arr;
 
 // Add a new user to the list
 const addUser = () => {
@@ -84,7 +86,10 @@ const addUser = () => {
       userName: username.value,
       registrationNumber: registrationNumber.value,
     };
-    localStorage.setItem("users", JSON.stringify([...users, user]));
+
+    arr.push(user);
+    users.push(user);
+    localStorage.setItem("users", JSON.stringify(users));
     location.reload(true);
   }
 };
