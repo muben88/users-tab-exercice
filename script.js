@@ -31,6 +31,14 @@ let arr = [
 const usersTable = document.getElementById("users-table");
 let users = JSON.parse(localStorage.getItem("users")) || [];
 
+// Delete a user form the list
+const deleteUser = (index) => {
+  users = JSON.parse(localStorage.getItem("users"));
+  users.splice(index, 1);
+  localStorage.setItem("users", JSON.stringify(users));
+  location.reload(true);
+};
+
 // List the users
 let list = () => {
   localStorage.setItem("users", JSON.stringify(users));
