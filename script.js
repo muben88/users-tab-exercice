@@ -28,8 +28,37 @@ let arr = [
   },
 ];
 
-const usersTable = document.getElementById("users-table");
+const addUserBtn = document.querySelector("#add-user-btn");
+const modal = document.querySelector(".modal");
+const backDrop = document.querySelector(".empty-div");
+
+addUserBtn.addEventListener("click", () => {
+  modal.classList.add("active_modal");
+  backDrop.style.display = "block";
+});
+
+backDrop.addEventListener("click", () => {
+  modal.classList.remove("active_modal");
+  backDrop.style.display = "none";
+});
+
+const usersTable = document.querySelector("#users-table");
 let users = JSON.parse(localStorage.getItem("users")) || [];
+
+// Add a new user to the list
+const addUser = () => {
+  let user = {
+    id: "123456789",
+    createdDate: "2021-01-06T00:00:00.000Z",
+    status: "validé",
+    firstName: "Meryem",
+    lastName: "Kamal",
+    userName: "merkam",
+    registrationNumber: "5234",
+  };
+  localStorage.setItem("users", JSON.stringify([...users, user]));
+  location.reload(true);
+};
 
 // Delete a user form the list
 const deleteUser = (index) => {
