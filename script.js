@@ -28,37 +28,71 @@ let arr = [
   },
 ];
 
+const firstName = document.querySelector("#first-name"); // first name input
+const lastName = document.querySelector("#last-name"); // last name input
+const status = document.querySelector("#status"); // status input
+const username = document.querySelector("#username"); // username input
+const createdDate = document.querySelector("#created-date"); // creation date input
+const registrationNumber = document.querySelector("#registration-number"); // registration num input
+const saveUserBtn = document.querySelector("#save-user-btn"); // Save user button
+
 const addUserBtn = document.querySelector("#add-user-btn");
 const modal = document.querySelector(".modal");
 const backDrop = document.querySelector(".empty-div");
 
+// Show the modal & backdrop
 addUserBtn.addEventListener("click", () => {
   modal.classList.add("active_modal");
   backDrop.style.display = "block";
 });
 
+// Hide the modal & remove the backdrop
 backDrop.addEventListener("click", () => {
   modal.classList.remove("active_modal");
   backDrop.style.display = "none";
 });
+
+// Ids generator
+const uid = () =>
+  Math.floor(Math.random() * Date.now())
+    .toString()
+    .substring(1, 10);
 
 const usersTable = document.querySelector("#users-table");
 let users = JSON.parse(localStorage.getItem("users")) || [];
 
 // Add a new user to the list
 const addUser = () => {
-  let user = {
-    id: "123456789",
-    createdDate: "2021-01-06T00:00:00.000Z",
-    status: "validé",
-    firstName: "Meryem",
-    lastName: "Kamal",
-    userName: "merkam",
-    registrationNumber: "5234",
-  };
-  localStorage.setItem("users", JSON.stringify([...users, user]));
-  location.reload(true);
+  if (
+    firstName.value.length > 0 &&
+    firstName.value.match(/^[A-Za-z]+$/) &&
+    lastName.value.length > 0 &&
+    lastName.value.match(/^[A-Za-z]+$/) &&
+    (status.value == "validé" ||
+      status.value == "en validation" ||
+      status.value == "rejeté") &&
+    username.value.length > 0 &&
+    createdDate.value.length >= 10 &&
+    registrationNumber.value.length > 0
+  ) {
+    let user = {
+      id: uid(),
+      createdDate: new Date(createdDate.value).toISOString(),
+      status: status.value,
+      firstName: firstName.value,
+      lastName: lastName.value,
+      userName: username.value,
+      registrationNumber: registrationNumber.value,
+    };
+    localStorage.setItem("users", JSON.stringify([...users, user]));
+    location.reload(true);
+  }
 };
+
+// Add user on click on save user button
+saveUserBtn.addEventListener("click", () => {
+  addUser();
+});
 
 // Delete a user form the list
 const deleteUser = (index) => {
