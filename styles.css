@@ -29,13 +29,15 @@ body,
 }
 
 .container {
+  position: relative;
   margin: 2rem;
   min-height: 100vh;
   flex-direction: column;
 }
 
 .users_container,
-.add_user_btn {
+.add_user_btn,
+.modal {
   padding: 1rem;
   background-color: #fff;
   border-radius: 0.3rem;
@@ -106,7 +108,8 @@ td {
   padding: 1.5rem;
 }
 
-.add_user_btn button {
+.add_user_btn button,
+.save-user-btn button {
   font-weight: 600;
   float: right;
   padding: 0.8rem 3rem;
@@ -118,7 +121,55 @@ td {
   box-shadow: 0px 3px 10px -6px rgb(0 0 0);
 }
 
-.add_user_btn button:hover {
+.add_user_btn button:hover,
+.save-user-btn button:hover {
   background-color: #f0b20a;
   transition: 0.2s ease-in;
+}
+
+.modal {
+  padding: 2rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal,
+.save-user-btn {
+  width: 100%;
+}
+
+.inputs-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 2rem;
+  color: rgb(100, 100, 100);
+}
+
+.last-input {
+  grid-row: 4/5;
+}
+
+.inputs-container div {
+  margin-top: 1rem;
+}
+
+input {
+  display: block;
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.5rem 0;
+  border-radius: 0.2rem;
+  border: 1px solid rgb(148, 148, 148);
+  outline: 1px solid transparent;
+  text-indent: 0.5rem;
+}
+
+input:focus {
+  outline: 1px solid #ffc21c;
+}
+
+body {
+  background-color: rgba(54, 54, 54, 0.5);
 }
