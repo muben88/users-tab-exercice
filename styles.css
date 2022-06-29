@@ -130,7 +130,7 @@ td {
 .modal {
   padding: 2rem;
   position: absolute;
-  top: 50%;
+  top: -50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -170,6 +170,19 @@ input:focus {
   outline: 1px solid #ffc21c;
 }
 
-body {
-  background-color: rgba(54, 54, 54, 0.5);
+.active_modal {
+  z-index: 10;
+  top: 50%;
+  transition: 0.5s ease-in;
+}
+
+.empty-div {
+  display: none;
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
 }
