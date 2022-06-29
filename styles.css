@@ -155,7 +155,8 @@ td {
   margin-top: 1rem;
 }
 
-input {
+input,
+select {
   display: block;
   width: 100%;
   margin-top: 0.5rem;
@@ -166,7 +167,8 @@ input {
   text-indent: 0.5rem;
 }
 
-input:focus {
+input:focus,
+select:focus {
   outline: 1px solid #ffc21c;
 }
 
