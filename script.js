@@ -39,19 +39,18 @@ const registrationNumber = document.querySelector("#registration-number"); // re
 const saveUserBtn = document.querySelector("#save-user-btn"); // Save user button
 
 const addUserBtn = document.querySelector("#add-user-btn");
-const modal = document.querySelector(".modal");
-const backDrop = document.querySelector(".empty-div");
+const dialog = document.querySelector("dialog");
 
 // Show the modal & backdrop
 addUserBtn.addEventListener("click", () => {
-  modal.classList.add("active_modal");
-  backDrop.style.display = "block";
+  dialog.showModal();
 });
 
 // Hide the modal & remove the backdrop
-backDrop.addEventListener("click", () => {
-  modal.classList.remove("active_modal");
-  backDrop.style.display = "none";
+dialog.addEventListener("click", (e) => {
+  if (e.target === dialog) {
+    dialog.close();
+  }
 });
 
 // Ids generator
@@ -70,9 +69,6 @@ const addUser = () => {
     firstName.value.match(/^[A-Za-z]+$/) &&
     lastName.value.length > 0 &&
     lastName.value.match(/^[A-Za-z]+$/) &&
-    (status.value == "validé" ||
-      status.value == "en validation" ||
-      status.value == "rejeté") &&
     username.value.length > 0 &&
     createdDate.value.length >= 10 &&
     registrationNumber.value.length > 0
